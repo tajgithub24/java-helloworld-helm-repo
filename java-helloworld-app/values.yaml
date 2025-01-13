@@ -1,0 +1,18 @@
+replicaCount: 2
+namespace: devops
+
+image:
+  repository: taj070796/java-helloworld
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 8080
+
+nodeSelector:
+  agentpool: nodepool2
+
+imagePullSecrets:
+  - name: dockerhub-secret
+
